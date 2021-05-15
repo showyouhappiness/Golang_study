@@ -28,6 +28,7 @@ func WriteFirstProgram(p Programmer) {
 }
 
 func TestPolymorphic(t *testing.T) {
+	//goProg:=&GoProgrammer{} //和下面的一样 Programmer是一个interface，只能只一个指针类型的实例，所以接收的时候要加上取址符
 	goProg := new(GoProgrammer)
 	javaProg := new(JavaProgrammer)
 	WriteFirstProgram(goProg)
