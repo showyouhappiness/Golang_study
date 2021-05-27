@@ -26,10 +26,10 @@ func TestSquareWithAssert(t *testing.T) {
 	expected := [...]int{1, 4, 9}
 	for i := 0; i < len(inputs); i++ {
 		ret := square(inputs[i])
-		assert.Equal(t, 123, 123, "they should be equal")
-		if ret != expected[i] {
-			t.Errorf("input is %d, the expected is %d,the actual %d", inputs[i], expected[i], ret)
-		}
+		assert.Equal(t, expected[i], ret)
+		//if ret != expected[i] {
+		//	t.Errorf("input is %d, the expected is %d,the actual %d", inputs[i], expected[i], ret)
+		//}
 	}
 }
 
