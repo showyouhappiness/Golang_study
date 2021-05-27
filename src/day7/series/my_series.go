@@ -11,7 +11,7 @@ func init() {
 }
 
 /*想要从外部可以访问，那么声明的首字母必须是大写，如果是小写就不能在外部访问*/
-func square(n int) int {
+func Square(n int) int {
 	return n * n
 }
 
