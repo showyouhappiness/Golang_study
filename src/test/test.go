@@ -1,31 +1,29 @@
 package main
 
-import (
-	"fmt"
-	"github.com/dgrijalva/jwt-go"
-	"time"
-)
+import "fmt"
 
-type MyCustomClaims struct {
-	Username string `json:"username"`
-	jwt.StandardClaims
+type Person struct {
+	name string
+	age  int
 }
 
+// 接收者是一个变量
+func (p Person) setName(name string) {
+	p.name = name
+}
+
+// 接收者是一个指针
+func (p *Person) setAge(age int) {
+	p.age = age
+}
 func main() {
-	mySigningKey := []byte("AllYourBase")
-
-	// Create the Claims
-	claims := MyCustomClaims{
-		"crf",
-		jwt.StandardClaims{
-			NotBefore: time.Now().Unix() - 60,
-			ExpiresAt: time.Now().Unix() + 60*60*2,
-			Issuer:    "test",
-		},
-	}
-
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	fmt.Println(token)
-	ss, err := token.SignedString(mySigningKey)
-	fmt.Printf("%v %v", ss, err)
+	per := Person{"lnj", 33}
+	fmt.Println(per) // {lnj 33}
+	// 值传递, 方法内部修改不会影响方法外部
+	per.setName("zs")
+	fmt.Println(per) // {lnj 33}
+	p := &per
+	// 地址传递, 方法内部修改会影响方法外部
+	(*p).setAge(18)
+	fmt.Println(per) // {lnj 18}
 }
