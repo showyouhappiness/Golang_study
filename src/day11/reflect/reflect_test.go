@@ -21,7 +21,6 @@ func CheckType(v interface{}) {
 		fmt.Println("Integer")
 	default:
 		fmt.Println("Unknown", t)
-
 	}
 }
 
