@@ -5,7 +5,6 @@ import "testing"
 const (
 	Monday = iota + 1
 	Tuesday
-	Wednesday
 )
 const (
 	Readable = 1 << iota
