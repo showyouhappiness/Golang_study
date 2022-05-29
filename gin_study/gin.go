@@ -6,8 +6,6 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
-	"syscall"
-	"time"
 )
 
 func Gin1() {
@@ -19,19 +17,18 @@ func Gin1() {
 				"message": "pong",
 			})
 		})
-		err := r.Run(":8080")
-		if err != nil {
-			return
-		}
+		r.Run(":8080")
+
 	}()
-	chSignal := make(chan os.Signal, 1)                      //创建一个信号通道
-	signal.Notify(chSignal, syscall.SIGINT, syscall.SIGTERM) //监听指定信号
+	chSignal := make(chan os.Signal, 1)   //创建一个信号通道
+	signal.Notify(chSignal, os.Interrupt) //监听指定信号
 	fmt.Println("server start")
 	chromePath := "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 	cmd := exec.Command(chromePath, "--app=http://localhost:8080")
 	cmd.Start()
+
 	select {
-	case <-time.After(time.Second * 5):
+	case <-chSignal: //阻塞直到接收到信号
 		cmd.Process.Kill()
 	}
 
