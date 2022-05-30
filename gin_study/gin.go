@@ -1,12 +1,15 @@
 package gin_study
 
 import (
+	"embed"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"os"
 	"os/exec"
 	"os/signal"
 )
+
+var FS embed.FS
 
 func Gin1() {
 	go func() { // 开启一个goroutine,如果不将gin.Default()放在goroutine中，那么gin.Default()会在主goroutine中执行，会导致主线程阻塞

@@ -1,6 +1,8 @@
 package main
 
-import "Golang_study/gin_study"
+import (
+	"Golang_study/gin_study"
+)
 
 func main() {
 	//lorca_test.Lorca1()
