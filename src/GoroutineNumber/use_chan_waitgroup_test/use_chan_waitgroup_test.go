@@ -1,8 +1,9 @@
-package main
+package use_chan_waitgroup_test
 
 import (
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -31,7 +32,7 @@ func (g *Glimit) Run(f func()) {
 var wg = sync.WaitGroup{}
 
 // 有限制
-func main() {
+func TestMain(m *testing.M) {
 	number := 10000
 	g := New(10)
 	for i := 0; i < number; i++ {
@@ -49,7 +50,7 @@ func main() {
 }
 
 // 无限制
-func main1() {
+func TestMain2(t *testing.T) {
 	number := 10000
 	for i := 0; i < number; i++ {
 		value := i
