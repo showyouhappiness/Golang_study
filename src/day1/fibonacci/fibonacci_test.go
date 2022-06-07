@@ -6,18 +6,16 @@ import (
 )
 
 func TestFibList(t *testing.T) {
-	//var a = 1
-	//var b = 1
-	a := 1
-	b := 1
-	fmt.Println(a)
-	for i := 0; i < 5; i++ {
-		fmt.Println(b)
-		tmp := a
-		a = b
-		b = tmp + a
+	numbers2 := [...]int{1, 2, 3, 4, 5, 6}
+	maxIndex2 := len(numbers2) - 1
+	for i, e := range numbers2 {
+		if i == maxIndex2 {
+			numbers2[0] += e
+		} else {
+			numbers2[i+1] += e
+		}
 	}
-	fmt.Println()
+	fmt.Println(numbers2)
 }
 
 func TestExchange(t *testing.T) {
