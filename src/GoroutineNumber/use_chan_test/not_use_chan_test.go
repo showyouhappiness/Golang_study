@@ -19,10 +19,7 @@ func TestNotUseChan(t *testing.T) {
 	}
 	for i := 0; i < len(urls); i++ {
 		go download(urls[i])
-	}
-
-	// 休眠一下
-	for {
-		time.Sleep(1 * 1e9)
+		// 休眠两秒模拟下载页面
+		time.Sleep(2 * 1e9)
 	}
 }

@@ -33,9 +33,4 @@ func TestUseChan(t *testing.T) {
 		ch <- 1
 		go download(urls[i], ch)
 	}
-
-	// 休眠一下
-	for {
-		time.Sleep(1 * 1e9)
-	}
 }
