@@ -13,3 +13,4 @@ func main() {
 	http.HandleFunc("/withdraw", bankapi.Withdraw)
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
+// 解决一个git提交不同项目代码的问题
