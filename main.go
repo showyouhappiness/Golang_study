@@ -39,4 +39,5 @@ func main() {
 		endWaiter.Done() // 发送结束信号
 	}
 	endWaiter.Wait() // 等待程序结束
+	// test
 }
