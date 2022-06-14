@@ -1,16 +1,13 @@
-package constant_test
+package main
 
-import (
-	"fmt"
-	"testing"
-)
+import "testing"
 
 const (
 	Monday = iota + 1
 	Tuesday
+	Wednesday
 )
 const (
-	// 位掩码表达式
 	Readable = 1 << iota
 	Writable
 	Executable
@@ -21,8 +18,7 @@ func TestConstantTry(t *testing.T) {
 }
 
 func TestConstantTry1(t *testing.T) {
-	a := 7 //0111  true true true
-	//a := 1 //0001  true false false
-	fmt.Println(Readable, Writable, Executable)
+	//a := 7 //0111  true true true
+	a := 1 //0001  true false false
 	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }
