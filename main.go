@@ -11,5 +11,6 @@ func main() {
 	http.HandleFunc("/statement", bankapi.Statement)
 	http.HandleFunc("/deposit", bankapi.Deposit)
 	http.HandleFunc("/withdraw", bankapi.Withdraw)
+	http.HandleFunc("/transfer", bankapi.Transfer)
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
