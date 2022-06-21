@@ -16,3 +16,7 @@ func m() {
 	a := "O" // 重新定义变量a，此时地址发生变化
 	print(a, &a)
 }
+func TestMain1(T *testing.T) {
+	var aVar = 10
+	print(aVar == 5)
+}
