@@ -10,7 +10,7 @@ LABEL1:
 	for i := 0; i <= 5; i++ {
 		for j := 0; j <= 5; j++ {
 			if j == 4 {
-				break LABEL1
+				break LABEL1 // 跳出循环
 			}
 			fmt.Printf("i is: %d, and j is: %d\n", i, j)
 		}
@@ -20,7 +20,7 @@ LABEL2:
 	for i := 0; i <= 5; i++ {
 		for j := 0; j <= 5; j++ {
 			if j == 4 {
-				continue LABEL2
+				continue LABEL2 // 跳出本次循环
 			}
 			fmt.Printf("i is: %d, and j is: %d\n", i, j)
 		}
@@ -30,7 +30,7 @@ LABEL3:
 	for i := 0; i <= 5; i++ {
 		for j := 0; j <= 5; j++ {
 			if j == 4 {
-				goto LABEL3
+				goto LABEL3 // 跳转到标签位置
 			}
 			fmt.Printf("i is: %d, and j is: %d\n", i, j)
 		}
