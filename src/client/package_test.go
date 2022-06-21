@@ -1,7 +1,7 @@
 package client
 
 import (
-	"test/src/day7/series"
+	"Golang_study/src/series"
 	"testing"
 )
 
