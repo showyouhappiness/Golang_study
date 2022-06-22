@@ -1,3 +1,4 @@
+// 斐波那契数列
 package fibonacci
 
 import (
@@ -42,17 +43,4 @@ func reduce(a int) {
 		a--
 		reduce(a)
 	}
-}
-
-func TestFactorial(t *testing.T) { // 递归 阶乘
-	i := 15
-	fmt.Printf("%d 的阶乘是 %d\n", i, Factorial(uint64(i)))
-}
-
-func Factorial(n uint64) (result uint64) {
-	if n > 0 {
-		result = n * Factorial(n-1)
-		return result
-	}
-	return 1
 }
