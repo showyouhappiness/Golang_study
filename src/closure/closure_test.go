@@ -6,6 +6,8 @@ package closure_test
 
 import (
 	"fmt"
+	"log"
+	"runtime"
 	"strings"
 	"testing"
 )
@@ -114,4 +116,35 @@ func TestClosure5(t *testing.T) {
 	addJpeg := MakeAddSuffix(".jpeg")
 	println(addBmp("file"))
 	println(addJpeg("file"))
+}
+
+// 闭包调试，可以获取哪个文件中的具体哪个函数正在执行
+
+// 包 runtime 中的函数 Caller() 提供了相应的信息，因此可以在需要的时候实现一个 where() 闭包函数来打印函数执行的位置
+func TestRunTime(t *testing.T) {
+	where := func() {
+		_, file, line, _ := runtime.Caller(1)
+		log.Printf("%s:%d", file, line)
+	}
+	where()
+	// some code
+	where()
+	// some more code
+	where()
+}
+
+// 设置 log 包中的 flag 参数来实现
+func TestSetFlags(t *testing.T) {
+	log.SetFlags(log.Llongfile)
+	log.Print("")
+
+	//简短版本的 where() 函数
+	var where = log.Print
+	func() {
+		where()
+		// some code
+		where()
+		// some code
+		where()
+	}()
 }
