@@ -6,6 +6,7 @@ package closure_test
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -81,6 +82,7 @@ func TestClosure3(t *testing.T) {
 func Adder1() func(int) int {
 	var x int
 	return func(delta int) int {
+		println(delta)
 		x += delta
 		return x
 	}
@@ -96,4 +98,20 @@ func f() (ret int) {
 		ret++
 	}()
 	return 1
+}
+
+func MakeAddSuffix(suffix string) func(string) string {
+	return func(name string) string {
+		if !strings.HasSuffix(name, suffix) {
+			return name + suffix
+		}
+		return name
+	}
+}
+
+func TestClosure5(t *testing.T) {
+	addBmp := MakeAddSuffix(".bmp")
+	addJpeg := MakeAddSuffix(".jpeg")
+	println(addBmp("file"))
+	println(addJpeg("file"))
 }
