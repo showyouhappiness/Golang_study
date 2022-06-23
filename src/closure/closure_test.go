@@ -10,6 +10,7 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+	"time"
 )
 
 func work() func() int {
@@ -147,4 +148,13 @@ func TestSetFlags(t *testing.T) {
 		// some code
 		where()
 	}()
+}
+
+// 计算函数执行时间
+func TestGetRunTime(t *testing.T) {
+	start := time.Now()
+	time.Sleep(time.Second * 2)
+	end := time.Now()
+	delta := end.Sub(start)
+	fmt.Printf("longCalculation took this amount of time: %s\n", delta)
 }
