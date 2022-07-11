@@ -55,14 +55,26 @@ func (r Rectangle) Area() float32 {
 	return r.length * r.width
 }
 
-func main() {
-
+func TestInterfacesPoly(t *testing.T) {
 	r := Rectangle{5, 3} // Area() of Rectangle needs a value
 	q := &Square{5}      // Area() of Square needs a pointer
 	// shapes := []Shaper{Shaper(r), Shaper(q)}
 	// or shorter
 	shapes := []Shaper{r, q}
 	fmt.Println("Looping through shapes for area ...")
+	for n := range shapes {
+		fmt.Println("Shape details: ", shapes[n])
+		fmt.Println("Area of this shape is: ", shapes[n].Area())
+	}
+}
+
+func TestInterfacesPoly2(t *testing.T) {
+	r := Rectangle{5, 3} // Area() of Rectangle needs a value
+	q := &Square{5}      // Area() of Square needs a pointer
+	c := &Circle{2.5}
+	fmt.Println("Looping through shapes for area ...")
+	// shapes := []Shaper{Shaper(r), Shaper(q), Shaper(c)}
+	shapes := []Shaper{r, q, c}
 	for n := range shapes {
 		fmt.Println("Shape details: ", shapes[n])
 		fmt.Println("Area of this shape is: ", shapes[n].Area())
