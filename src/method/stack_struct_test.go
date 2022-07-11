@@ -16,6 +16,8 @@ type Stack struct {
 	data [LIMIT]int
 }
 
+type Stack1 [LIMIT]int
+
 func TestStackStruct(t *testing.T) {
 	st1 := new(Stack)
 	fmt.Printf("%v\n", st1)
@@ -52,6 +54,17 @@ func (st *Stack) Push(n int) {
 func (st *Stack) Pop() int {
 	st.ix--
 	return st.data[st.ix]
+}
+
+func (st1 *Stack1) Pop1() int {
+	v := 0
+	for ix := len(st1) - 1; ix >= 0; ix-- {
+		if v = st1[ix]; v != 0 {
+			st1[ix] = 0
+			return v
+		}
+	}
+	return 0
 }
 
 func (st Stack) String() string {
