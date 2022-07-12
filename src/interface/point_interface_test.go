@@ -1,3 +1,6 @@
+/*
+定义接口 Magnitude，它有一个方法 Abs()。让 Point、Point3 及 Polar 实现此接口。通过接口类型变量使用方法做 point.go 中同样的事情。
+*/
 package interface_test
 
 import (
