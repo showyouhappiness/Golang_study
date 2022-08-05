@@ -2,6 +2,7 @@ package error_test
 
 import (
 	"errors"
+	"fmt"
 	"testing"
 )
 
@@ -35,4 +36,21 @@ func TestGetFibonacci1(t *testing.T) {
 	} else {
 		t.Log(v)
 	}
+}
+
+var errNotFound = errors.New("not found error")
+
+func TestError(t *testing.T) {
+	fmt.Printf("error: %v\n", errNotFound)
+	if _, err := Sqrt(-1); err != nil {
+		fmt.Printf("Error: %s", err)
+	}
+}
+
+func Sqrt(f float64) (float64, error) {
+	if f < 0 {
+		return 0, errors.New("math - square root of negative number")
+	}
+	return f, nil
+	// implementation of Sqrt
 }
