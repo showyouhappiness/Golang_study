@@ -8,12 +8,13 @@ import (
 )
 
 func TestFileCopy(t *testing.T) {
-	file, err := CopyFile("target.txt", "source.txt")
+	srcFile := "E:\\result_images2\\00.02.20P195922W34V1I1A0S000081064507411M0N02212c07R1E0Othund.jpg"
+	dstFile := "E:\\result_images2\\03.02.20P195922W34V1I1A0S000081064507411M0N02212c07R1E0Othund.jpg"
+	_, err := CopyFile(dstFile, srcFile)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(file)
 	fmt.Println("Copy done!")
 }
 
