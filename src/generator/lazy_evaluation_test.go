@@ -30,5 +30,6 @@ func TestLazyEvaluation(t *testing.T) {
 	//fmt.Println(generateInteger())
 	for {
 		fmt.Println(generateInteger())
+
 	}
 }
