@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"testing"
 )
 
 const form = `<html><body><form action="#" method="post" name="bar">
@@ -35,7 +36,7 @@ func FormServer(w http.ResponseWriter, request *http.Request) {
 	}
 }
 
-func main() {
+func TestRobust(t *testing.T) {
 	http.HandleFunc("/test1", logPanics(SimpleServer))
 	http.HandleFunc("/test2", logPanics(FormServer))
 	if err := http.ListenAndServe(":8088", nil); err != nil {
