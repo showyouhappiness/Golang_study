@@ -62,6 +62,7 @@ func TestArraySum(t *testing.T) {
 }
 
 func sum(a *[3]float64) (sum float64) {
+
 	for _, v := range a { // derefencing *a to get back to the array is not necessary!
 		sum += v
 	}

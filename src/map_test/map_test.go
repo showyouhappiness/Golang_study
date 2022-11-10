@@ -43,3 +43,17 @@ func TestTravelMap(t *testing.T) {
 	}
 
 }
+
+func TestIsPresent(t *testing.T) {
+	map1 := map[string]string{
+		"a": "apple",
+		"b": "banana",
+	}
+	v, isPresent := map1["b"]
+
+	if isPresent {
+		fmt.Print("The key is present in map.", v)
+	} else {
+		fmt.Print("The key is not present in map.", v)
+	}
+}

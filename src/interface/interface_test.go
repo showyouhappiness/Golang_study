@@ -68,6 +68,14 @@ func TestInterfacesPoly(t *testing.T) {
 	}
 }
 
+//我的梦在哪里
+//我就漂在哪里
+
+//如果你们有梦想
+//放开的去追
+
+//因为只有奋斗
+//才能改变命运
 func TestInterfacesPoly2(t *testing.T) {
 	r := Rectangle{5, 3} // Area() of Rectangle needs a value
 	q := &Square{5}      // Area() of Square needs a pointer
